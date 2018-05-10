@@ -1,6 +1,6 @@
 {
   "name": "@kshunz/mutest",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A seriously, seriously, small test utility",
   "main": "index.js",
   "scripts": {
