@@ -1,12 +1,16 @@
 module.exports = function test(expectedResult, conditionToTest) {
-	var fail = '\033[1;31mFail: \033[0m';
-	var pass = '\033[1;32mPass: \033[0m';
-  var failMsg = fail + `${expectedResult} expected but got ${conditionToTest}`;
-  var passMsg = pass + `${expectedResult} === ${conditionToTest}`;
-  var conditionPasses = conditionToTest === expectedResult;
-  var response = conditionPasses ? passMsg : failMsg;
+  const green = '\x1b[32m%s\x1b[0m';
+  const red = '\x1b[31m%s\x1b[0m';
+  const failMsg = `Fail ${expectedResult} expected but got ${conditionToTest}`;
+  const passMsg = `Pass ${expectedResult} === ${conditionToTest}`;
+  const conditionPasses = conditionToTest === expectedResult;
+  const response = conditionPasses ? passMsg : failMsg;
+  const output = `${response}`;
 
-  process.stdout.write(response  + '\n');
-
-	return conditionPasses;
+  if (conditionPasses) {
+    console.log(green, output);
+  } else {
+    console.log(red, output);
+  }
+  return conditionPasses;
 };

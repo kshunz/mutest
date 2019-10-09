@@ -1,4 +1,4 @@
-const test = require('..');
+const test = require('../index.js');
 
-test(true, 1===1);
-test(false, 1===1);
+test(false, 2 === 1);
+test(true, 2 === 1);
